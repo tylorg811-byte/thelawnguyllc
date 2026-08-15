@@ -3,1182 +3,2127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Lawn Guy & Services LLC — Lawn Care, Mulching, Asphalt Patching and Weed Treatment. Call 731-336-3032.">
+<meta name="theme-color" content="#12351c">
 
-<title>The Lawn Guy & Services LLC | Professional Property Services</title>
-
-<meta name="description" content="The Lawn Guy & Services LLC provides professional lawn care, mulching, asphalt patching and weed treatment. Call 731-336-3032 for a quote.">
-
-<meta name="theme-color" content="#173b20">
+<title>The Lawn Guy & Services LLC | Property Services</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
 
-:root{
-    --forest:#173b20;
-    --forest-dark:#0c2112;
-    --forest-deep:#08170c;
-    --green:#2f8f3f;
-    --green-light:#67bd55;
-    --cream:#f5f3ea;
-    --white:#ffffff;
-    --text:#1c261e;
-    --muted:#667068;
-    --line:#dfe4dc;
+/* =========================================================
+   THE LAWN GUY & SERVICES LLC
+   SINGLE-FILE GITHUB PAGES WEBSITE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   FONTS
+--------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+
+/* ---------------------------------------------------------
+   VARIABLES
+--------------------------------------------------------- */
+
+:root {
+    --forest-950: #07130a;
+    --forest-900: #0b1d0e;
+    --forest-800: #102a15;
+    --forest-700: #163b1d;
+    --forest-600: #205b2c;
+
+    --green-500: #3c9946;
+    --green-400: #69c45d;
+    --green-300: #9ade8c;
+
+    --cream: #f4f2e9;
+    --cream-dark: #e7e6dc;
+    --white: #ffffff;
+
+    --ink: #152017;
+    --muted: #667168;
+    --line: #d9dfd7;
+
+    --shadow: 0 20px 60px rgba(5, 20, 8, .12);
+
+    --heading: "Barlow Condensed", sans-serif;
+    --body: "DM Sans", sans-serif;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+
+/* ---------------------------------------------------------
+   RESET
+--------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:"DM Sans",Arial,sans-serif;
-    color:var(--text);
-    background:var(--cream);
+body {
+    font-family: var(--body);
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
 }
 
-img{
-    max-width:100%;
-    display:block;
+body.menu-open {
+    overflow: hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+img {
+    display: block;
+    max-width: 100%;
 }
 
 button,
 input,
 textarea,
-select{
-    font:inherit;
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--green-400);
+    color: var(--forest-950);
 }
 
 
-/* =====================================================
-   TOP GRASS BAR
-===================================================== */
+/* ---------------------------------------------------------
+   GLOBAL
+--------------------------------------------------------- */
 
-.topbar{
-    height:38px;
-    position:relative;
-    overflow:hidden;
-    background:#112d17;
-    color:#dcebd9;
-    display:flex;
-    align-items:center;
+.container {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
 }
 
-.topbar-track{
-    display:flex;
-    width:max-content;
-    animation:marquee 34s linear infinite;
+.section {
+    padding: 120px 0;
 }
 
-.topbar-track span{
-    padding:0 38px;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    color: var(--green-500);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
 }
 
-.topbar-track strong{
-    color:#9ad989;
+.eyebrow::before {
+    content: "";
+    width: 32px;
+    height: 2px;
+    background: currentColor;
 }
 
-@keyframes marquee{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+.section-title {
+    font-family: var(--heading);
+    font-size: clamp(54px, 6.5vw, 88px);
+    font-weight: 600;
+    line-height: .88;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
 }
 
-
-/*
-  A subtle photographic grass texture sits at the
-  bottom of the bar. Replace grass-texture.jpg later
-  if desired; the site still looks good without it.
-*/
-.topbar::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    height:8px;
-
-    background:
-        linear-gradient(
-            165deg,
-            transparent 0 42%,
-            rgba(94,160,71,.85) 43% 50%,
-            transparent 51% 100%
-        ) 0 0/13px 9px repeat-x;
-
-    opacity:.65;
+.section-title span {
+    color: var(--green-500);
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-.header{
-    position:absolute;
-    top:38px;
-    left:0;
-    right:0;
-    z-index:20;
-    color:white;
+.section-copy {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.85;
 }
 
-.header-inner{
-    max-width:1280px;
-    margin:auto;
-    min-height:92px;
-    padding:18px 32px;
+.btn {
+    min-height: 54px;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
-    border-bottom:1px solid rgba(255,255,255,.18);
+    padding: 0 25px;
+
+    border: 1px solid transparent;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:13px;
+.btn:hover {
+    transform: translateY(-3px);
 }
 
-.logo img{
-    width:58px;
-    height:58px;
-    object-fit:contain;
+.btn-primary {
+    background: var(--green-400);
+    color: var(--forest-950);
 }
 
-.logo-copy{
-    line-height:.9;
-    text-transform:uppercase;
+.btn-primary:hover {
+    background: var(--white);
+    box-shadow: 0 12px 30px rgba(105,196,93,.22);
 }
 
-.logo-copy b{
-    display:block;
-    font-family:Oswald,sans-serif;
-    font-size:22px;
-    letter-spacing:.5px;
+.btn-dark {
+    background: var(--forest-700);
+    color: var(--white);
 }
 
-.logo-copy span{
-    display:block;
-    margin-top:6px;
-    font-size:8px;
-    letter-spacing:3px;
-    color:#d8e5d8;
+.btn-dark:hover {
+    background: var(--forest-900);
 }
 
-.nav{
-    display:flex;
-    align-items:center;
-    gap:30px;
+.btn-outline {
+    border-color: rgba(255,255,255,.35);
+    color: var(--white);
 }
 
-.nav a{
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    color:#f3f6f1;
-}
-
-.nav a:hover{
-    color:#a8df96;
-}
-
-.nav-call{
-    padding:13px 19px;
-    background:#ffffff;
-    color:var(--forest)!important;
-}
-
-.nav-call:hover{
-    background:#a8df96;
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--forest-800);
+    border-color: var(--white);
 }
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ---------------------------------------------------------
+   TOP TICKER
+--------------------------------------------------------- */
 
-.hero{
-    min-height:790px;
-    position:relative;
-    display:flex;
-    align-items:center;
+.grass-ticker {
+    height: 42px;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(6,20,9,.94) 0%,
-            rgba(6,20,9,.78) 42%,
-            rgba(6,20,9,.28) 78%,
-            rgba(6,20,9,.48) 100%
-        ),
-        url("hero.jpg") center/cover no-repeat;
+    position: relative;
+    z-index: 100;
 
-    color:white;
-}
+    display: flex;
+    align-items: center;
 
-.hero::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    height:150px;
-    background:linear-gradient(
-        transparent,
-        var(--forest-deep)
-    );
-}
-
-.hero-inner{
-    width:100%;
-    max-width:1280px;
-    margin:auto;
-    padding:190px 32px 120px;
-    position:relative;
-    z-index:2;
-}
-
-.hero-kicker{
-    display:flex;
-    align-items:center;
-    gap:11px;
-
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:3px;
-    text-transform:uppercase;
-
-    color:#b8dcad;
-}
-
-.hero-kicker::before{
-    content:"";
-    width:32px;
-    height:1px;
-    background:#8fcf7c;
-}
-
-.hero h1{
-    max-width:800px;
-    margin-top:21px;
-
-    font-family:Oswald,sans-serif;
-    font-size:clamp(65px,9vw,118px);
-    font-weight:600;
-    line-height:.91;
-    letter-spacing:-2px;
-    text-transform:uppercase;
-}
-
-.hero h1 span{
-    color:#9bdd87;
-}
-
-.hero-copy{
-    max-width:535px;
-    margin-top:27px;
-
-    font-size:15px;
-    line-height:1.75;
-    color:#d6dfd5;
-}
-
-.hero-actions{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:34px;
-}
-
-.btn{
-    min-height:52px;
-    padding:0 23px;
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-
-    border:1px solid transparent;
-    transition:.25s;
-}
-
-.btn-primary{
-    background:#91d47d;
-    color:#0c2112;
-}
-
-.btn-primary:hover{
-    background:white;
-    transform:translateY(-2px);
-}
-
-.btn-outline{
-    border-color:rgba(255,255,255,.4);
-    color:white;
-}
-
-.btn-outline:hover{
-    background:white;
-    color:var(--forest);
-}
-
-
-/* =====================================================
-   TRUST STRIP
-===================================================== */
-
-.trust{
-    position:relative;
-    z-index:5;
-    background:var(--forest-dark);
-    color:white;
-}
-
-.trust-inner{
-    max-width:1280px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
-
-.trust-item{
-    padding:25px 28px;
-    border-right:1px solid rgba(255,255,255,.1);
-}
-
-.trust-item:last-child{
-    border-right:0;
-}
-
-.trust-number{
-    font-family:Oswald,sans-serif;
-    color:#9bdd87;
-    font-size:22px;
-}
-
-.trust-label{
-    margin-top:4px;
-    font-size:9px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    color:#c3cec3;
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.intro{
-    padding:120px 32px;
-    background:var(--cream);
-}
-
-.intro-inner{
-    max-width:1280px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:90px;
-    align-items:center;
-}
-
-.section-tag{
-    margin-bottom:13px;
-
-    color:var(--green);
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-}
-
-.intro h2{
-    max-width:620px;
-
-    font-family:Oswald,sans-serif;
-    font-size:clamp(48px,6vw,78px);
-    font-weight:500;
-    line-height:.95;
-    text-transform:uppercase;
-    color:var(--forest);
-}
-
-.intro h2 span{
-    color:var(--green);
-}
-
-.intro-copy{
-    color:var(--muted);
-    font-size:15px;
-    line-height:1.9;
-}
-
-.intro-copy p + p{
-    margin-top:18px;
-}
-
-
-/* =====================================================
-   SERVICES
-===================================================== */
-
-.services{
-    padding:110px 32px;
-    background:white;
-}
-
-.services-inner{
-    max-width:1280px;
-    margin:auto;
-}
-
-.services-heading{
-    display:flex;
-    align-items:end;
-    justify-content:space-between;
-    gap:30px;
-    margin-bottom:48px;
-}
-
-.services-heading h2{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(48px,6vw,75px);
-    font-weight:500;
-    line-height:.9;
-    text-transform:uppercase;
-    color:var(--forest);
-}
-
-.services-heading p{
-    max-width:400px;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.7;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:#dfe4dc;
-    border:1px solid #dfe4dc;
-}
-
-.service{
-    min-height:315px;
-    padding:29px;
-    background:white;
-    position:relative;
-    transition:.3s;
-}
-
-.service:hover{
-    background:#f0f5ed;
-}
-
-.service-number{
-    font-family:Oswald,sans-serif;
-    color:var(--green);
-    font-size:18px;
-}
-
-.service h3{
-    margin-top:105px;
-
-    font-family:Oswald,sans-serif;
-    font-size:31px;
-    font-weight:500;
-    line-height:1;
-    text-transform:uppercase;
-    color:var(--forest);
-}
-
-.service p{
-    margin-top:14px;
-
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.65;
-}
-
-
-/* =====================================================
-   FEATURE / ABOUT
-===================================================== */
-
-.feature{
-    padding:120px 32px;
-    background:var(--forest);
-    color:white;
-}
-
-.feature-inner{
-    max-width:1280px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:90px;
-    align-items:center;
-}
-
-.feature-image{
-    min-height:570px;
+    overflow: hidden;
 
     background:
         linear-gradient(
             180deg,
-            transparent 55%,
-            rgba(0,0,0,.55)
+            #163c1b 0%,
+            #0c2510 100%
+        );
+
+    border-bottom: 1px solid rgba(154,222,140,.22);
+}
+
+/*
+  The grass is intentionally subtle.
+  It creates a natural lawn edge rather than
+  looking like cartoon clip-art.
+*/
+
+.grass-ticker::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+
+    height: 14px;
+
+    opacity: .85;
+
+    background:
+        linear-gradient(
+            72deg,
+            transparent 0 40%,
+            #2e7131 41% 52%,
+            transparent 53%
+        ) 0 0 / 17px 14px repeat-x,
+
+        linear-gradient(
+            108deg,
+            transparent 0 43%,
+            #3e8837 44% 52%,
+            transparent 53%
+        ) 8px 3px / 21px 13px repeat-x;
+}
+
+.ticker-window {
+    width: 100%;
+    overflow: hidden;
+}
+
+.ticker-track {
+    width: max-content;
+
+    display: flex;
+
+    animation:
+        tickerMove 34s linear infinite;
+}
+
+.ticker-item {
+    padding: 0 42px;
+
+    color: #d9e8d7;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.ticker-item strong {
+    color: var(--green-300);
+}
+
+@keyframes tickerMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.site-header {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+
+    z-index: 90;
+
+    color: var(--white);
+}
+
+.header-inner {
+    min-height: 94px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-logo {
+    width: 62px;
+    height: 62px;
+
+    object-fit: contain;
+}
+
+.brand-name {
+    line-height: .92;
+    text-transform: uppercase;
+}
+
+.brand-name strong {
+    display: block;
+
+    font-family: var(--heading);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.brand-name small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #c8d7c9;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2.8px;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.desktop-nav a:not(.nav-call) {
+    color: #e9eee9;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    transition: color .2s ease;
+}
+
+.desktop-nav a:not(.nav-call):hover {
+    color: var(--green-300);
+}
+
+.nav-call {
+    min-height: 46px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 0 17px;
+
+    background: var(--white);
+    color: var(--forest-700);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition: .25s ease;
+}
+
+.nav-call:hover {
+    background: var(--green-300);
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE MENU
+--------------------------------------------------------- */
+
+.menu-button {
+    width: 46px;
+    height: 46px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.3);
+    background: transparent;
+    color: white;
+}
+
+.menu-button span,
+.menu-button span::before,
+.menu-button span::after {
+    width: 20px;
+    height: 2px;
+
+    position: relative;
+
+    display: block;
+
+    background: currentColor;
+
+    transition: .25s;
+}
+
+.menu-button span::before,
+.menu-button span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.menu-button span::before {
+    top: -7px;
+}
+
+.menu-button span::after {
+    top: 7px;
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+
+    z-index: 200;
+
+    padding: 105px 28px 40px;
+
+    background: var(--forest-950);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s ease;
+}
+
+.mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-links {
+    display: grid;
+    gap: 8px;
+}
+
+.mobile-menu a {
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+
+    color: white;
+
+    font-family: var(--heading);
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.mobile-menu .mobile-call {
+    margin-top: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+
+    background: var(--green-400);
+    color: var(--forest-950);
+
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+.hero {
+    min-height: 820px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4,15,7,.96) 0%,
+            rgba(4,15,7,.82) 37%,
+            rgba(4,15,7,.45) 68%,
+            rgba(4,15,7,.35) 100%
         ),
-        url("project-1.jpg") center/cover no-repeat;
+        url("hero.jpg") center / cover no-repeat;
+
+    color: white;
 }
 
-.feature-content .section-tag{
-    color:#9bdd87;
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(4,15,7,.96) 0%,
+            transparent 28%
+        );
 }
 
-.feature-content h2{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(48px,6vw,75px);
-    font-weight:500;
-    line-height:.9;
-    text-transform:uppercase;
+.hero::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 100px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            var(--forest-950)
+        );
 }
 
-.feature-content h2 span{
-    color:#9bdd87;
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    padding-top: 135px;
+    padding-bottom: 105px;
 }
 
-.feature-content p{
-    max-width:500px;
-    margin-top:25px;
-    color:#c4d0c5;
-    font-size:14px;
-    line-height:1.8;
+.hero-kicker {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: var(--green-300);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-.feature-list{
-    margin-top:30px;
-    list-style:none;
+.hero-kicker::before {
+    content: "";
+
+    width: 34px;
+    height: 2px;
+
+    background: currentColor;
 }
 
-.feature-list li{
-    padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,.12);
+.hero h1 {
+    max-width: 880px;
 
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:1px;
-    text-transform:uppercase;
+    margin-top: 20px;
+
+    font-family: var(--heading);
+    font-size: clamp(72px, 10vw, 130px);
+    font-weight: 600;
+    line-height: .84;
+    letter-spacing: -2px;
+    text-transform: uppercase;
 }
 
-.feature-list li::before{
-    content:"✓";
-    color:#9bdd87;
-    margin-right:12px;
+.hero h1 span {
+    color: var(--green-300);
+}
+
+.hero-description {
+    max-width: 560px;
+
+    margin-top: 30px;
+
+    color: #d1dad2;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.hero-scroll {
+    position: absolute;
+    right: 0;
+    bottom: 130px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transform: rotate(-90deg);
+    transform-origin: right center;
+}
+
+.hero-scroll::after {
+    content: "";
+
+    width: 42px;
+    height: 1px;
+
+    background: rgba(255,255,255,.4);
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
+   SERVICE BAR
+--------------------------------------------------------- */
+
+.service-bar {
+    position: relative;
+    z-index: 5;
+
+    background: var(--forest-900);
+
+    color: white;
+}
+
+.service-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.service-bar-item {
+    min-height: 102px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 20px 25px;
+
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.service-bar-item:last-child {
+    border-right: 0;
+}
+
+.service-bar-number {
+    color: var(--green-300);
+
+    font-family: var(--heading);
+    font-size: 22px;
+}
+
+.service-bar-text strong {
+    display: block;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.service-bar-text small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #8c9c8e;
+
+    font-size: 10px;
+}
+
+
+/* ---------------------------------------------------------
+   INTRO / ABOUT
+--------------------------------------------------------- */
+
+.about {
+    background: var(--cream);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.about-heading {
+    max-width: 650px;
+}
+
+.about-copy {
+    max-width: 510px;
+}
+
+.about-copy p + p {
+    margin-top: 18px;
+}
+
+.about-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.about-point {
+    padding: 19px;
+
+    background: rgba(255,255,255,.65);
+
+    border: 1px solid var(--line);
+}
+
+.about-point strong {
+    display: block;
+
+    color: var(--forest-700);
+
+    font-family: var(--heading);
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.about-point span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   SERVICES SECTION
+--------------------------------------------------------- */
+
+.services-section {
+    background: white;
+}
+
+.services-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 40px;
+
+    margin-bottom: 52px;
+}
+
+.services-header-copy {
+    max-width: 390px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.service-card {
+    min-height: 350px;
+
+    position: relative;
+
+    padding: 32px;
+
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    overflow: hidden;
+
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+    right: -80px;
+    bottom: -80px;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(60,153,70,.06);
+
+    transition: transform .4s ease;
+}
+
+.service-card:hover {
+    background: #f5f8f3;
+}
+
+.service-card:hover::before {
+    transform: scale(1.35);
+}
+
+.service-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.service-index {
+    color: var(--green-500);
+
+    font-family: var(--heading);
+    font-size: 21px;
+}
+
+.service-arrow {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--line);
+
+    color: var(--forest-700);
+
+    transition: .25s;
+}
+
+.service-card:hover .service-arrow {
+    background: var(--forest-700);
+    color: white;
+}
+
+.service-card h3 {
+    max-width: 430px;
+
+    margin-top: 95px;
+
+    font-family: var(--heading);
+    font-size: 43px;
+    font-weight: 600;
+    line-height: .9;
+    text-transform: uppercase;
+
+    color: var(--forest-700);
+}
+
+.service-card p {
+    max-width: 420px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURE PHOTO
+--------------------------------------------------------- */
+
+.feature {
+    background: var(--forest-800);
+    color: white;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.feature-photo {
+    min-height: 610px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(0,0,0,.65)
+        ),
+        url("project-1.jpg") center / cover no-repeat;
+}
+
+.feature-photo-label {
+    position: absolute;
+    left: 25px;
+    bottom: 22px;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.feature-copy .eyebrow {
+    color: var(--green-300);
+}
+
+.feature-copy .section-title {
+    color: white;
+}
+
+.feature-copy .section-title span {
+    color: var(--green-300);
+}
+
+.feature-copy > p {
+    max-width: 500px;
+
+    margin-top: 26px;
+
+    color: #c0ccc2;
+
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.feature-list {
+    margin-top: 32px;
+
+    list-style: none;
+}
+
+.feature-list li {
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+    color: #e0e7e1;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.feature-list li::before {
+    content: "✓";
+
+    margin-right: 12px;
+
+    color: var(--green-300);
+}
+
+
+/* ---------------------------------------------------------
    PROJECTS
-===================================================== */
+--------------------------------------------------------- */
 
-.projects{
-    padding:120px 32px;
-    background:var(--cream);
+.projects {
+    background: var(--cream);
 }
 
-.projects-inner{
-    max-width:1280px;
-    margin:auto;
+.projects-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 40px;
+
+    margin-bottom: 48px;
 }
 
-.projects-heading{
-    margin-bottom:45px;
+.projects-intro {
+    max-width: 390px;
 }
 
-.projects-heading h2{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(50px,6vw,76px);
-    font-weight:500;
-    line-height:.9;
-    text-transform:uppercase;
-    color:var(--forest);
+.project-grid {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 290px 290px;
+
+    gap: 8px;
 }
 
-.projects-heading h2 span{
-    color:var(--green);
+.project {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #d9ded6;
 }
 
-.project-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    grid-template-rows:300px 300px;
-    gap:8px;
+.project:first-child {
+    grid-row: span 2;
 }
 
-.project{
-    position:relative;
-    overflow:hidden;
-    background:#d9ded7;
+.project img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .7s cubic-bezier(.2,.7,.2,1);
 }
 
-.project:first-child{
-    grid-row:span 2;
+.project:hover img {
+    transform: scale(1.055);
 }
 
-.project img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
+.project::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(0,0,0,.7)
+        );
+
+    pointer-events: none;
 }
 
-.project:hover img{
-    transform:scale(1.04);
+.project-caption {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+
+    z-index: 2;
+
+    color: white;
 }
 
-.project-caption{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:45px 20px 18px;
+.project-caption small {
+    display: block;
 
-    background:linear-gradient(
-        transparent,
-        rgba(0,0,0,.72)
-    );
+    margin-bottom: 5px;
 
-    color:white;
+    color: var(--green-300);
+
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.project-caption strong{
-    display:block;
-    font-family:Oswald,sans-serif;
-    font-size:21px;
-    font-weight:500;
-    text-transform:uppercase;
+.project-caption strong {
+    display: block;
+
+    font-family: var(--heading);
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
+   PROCESS
+--------------------------------------------------------- */
+
+.process {
+    background: white;
+}
+
+.process-heading {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.process-step {
+    padding: 35px 30px 20px;
+
+    border-right: 1px solid var(--line);
+}
+
+.process-step:last-child {
+    border-right: 0;
+}
+
+.process-number {
+    color: var(--green-500);
+
+    font-family: var(--heading);
+    font-size: 46px;
+    font-weight: 500;
+}
+
+.process-step h3 {
+    margin-top: 45px;
+
+    color: var(--forest-700);
+
+    font-family: var(--heading);
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.process-step p {
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
    CTA
-===================================================== */
+--------------------------------------------------------- */
 
-.cta{
-    padding:85px 32px;
-    background:#dce7d8;
+.callout {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(12,38,17,.97),
+            rgba(23,76,34,.89)
+        ),
+        url("hero.jpg") center / cover no-repeat;
+
+    color: white;
 }
 
-.cta-inner{
-    max-width:1280px;
-    margin:auto;
+.callout::before {
+    content: "";
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:40px;
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -120px;
+    top: -180px;
+
+    border: 1px solid rgba(154,222,140,.2);
+
+    border-radius: 50%;
 }
 
-.cta h2{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(45px,6vw,72px);
-    font-weight:500;
-    line-height:.9;
-    text-transform:uppercase;
-    color:var(--forest);
+.callout-inner {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-.cta p{
-    margin-top:14px;
-    color:#5d685f;
-    font-size:13px;
+.callout .section-title {
+    color: white;
 }
 
-.cta-phone{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(30px,4vw,52px);
-    color:var(--forest);
-    white-space:nowrap;
+.callout .section-title span {
+    color: var(--green-300);
+}
+
+.callout-copy {
+    margin-top: 17px;
+
+    color: #c6d4c8;
+
+    font-size: 13px;
+}
+
+.callout-phone {
+    font-family: var(--heading);
+    font-size: clamp(38px, 5vw, 65px);
+    font-weight: 600;
+    line-height: 1;
+
+    color: var(--green-300);
+
+    white-space: nowrap;
+
+    transition: color .2s;
+}
+
+.callout-phone:hover {
+    color: white;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    CONTACT
-===================================================== */
+--------------------------------------------------------- */
 
-.contact{
-    padding:120px 32px;
-    background:white;
+.contact {
+    background: white;
 }
 
-.contact-inner{
-    max-width:1280px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:100px;
+.contact-grid {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 90px;
+    align-items: start;
 }
 
-.contact h2{
-    font-family:Oswald,sans-serif;
-    font-size:clamp(52px,6vw,78px);
-    font-weight:500;
-    line-height:.9;
-    text-transform:uppercase;
-    color:var(--forest);
+.contact-info {
+    max-width: 460px;
 }
 
-.contact h2 span{
-    color:var(--green);
+.contact-description {
+    margin-top: 25px;
 }
 
-.contact-description{
-    margin-top:25px;
-    max-width:430px;
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.8;
+.contact-details {
+    display: grid;
+    gap: 25px;
+
+    margin-top: 40px;
 }
 
-.contact-details{
-    margin-top:40px;
-    display:grid;
-    gap:25px;
+.contact-detail-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--green-500);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.contact-detail small{
-    display:block;
-    color:var(--green);
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
+.contact-detail a {
+    color: var(--forest-700);
+
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.contact-detail a{
-    display:block;
-    margin-top:6px;
-    font-size:17px;
-    font-weight:700;
-    color:var(--forest);
+.contact-form {
+    padding: 36px;
+
+    background: #f3f5f1;
+
+    border: 1px solid var(--line);
 }
 
-.quote-form{
-    padding:35px;
-    background:#f4f6f2;
-    border:1px solid var(--line);
+.form-heading {
+    margin-bottom: 24px;
+
+    color: var(--forest-700);
+
+    font-family: var(--heading);
+    font-size: 27px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:13px;
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
 }
 
-.quote-form input,
-.quote-form select,
-.quote-form textarea{
-    width:100%;
-    margin-bottom:13px;
-    padding:15px;
-
-    border:1px solid #d6ddd4;
-    border-radius:0;
-
-    background:white;
-    color:var(--text);
-
-    outline:none;
+.form-field {
+    margin-bottom: 13px;
 }
 
-.quote-form input:focus,
-.quote-form select:focus,
-.quote-form textarea:focus{
-    border-color:var(--green);
+.form-field.full {
+    grid-column: 1 / -1;
 }
 
-.quote-form textarea{
-    min-height:150px;
-    resize:vertical;
+.form-field label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #566258;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
 }
 
-.quote-form button{
-    width:100%;
-    border:0;
-    cursor:pointer;
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+
+    padding: 15px 14px;
+
+    border: 1px solid #d5ddd3;
+    border-radius: 0;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--ink);
+
+    font-size: 13px;
+
+    transition:
+        border-color .2s,
+        box-shadow .2s;
+}
+
+.form-field textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--green-500);
+
+    box-shadow: 0 0 0 3px rgba(60,153,70,.08);
+}
+
+.form-submit {
+    width: 100%;
+
+    margin-top: 4px;
+
+    border: 0;
 }
 
 
-/* =====================================================
+/* ---------------------------------------------------------
    FOOTER
-===================================================== */
+--------------------------------------------------------- */
 
-.footer{
-    padding:40px 32px;
-    background:var(--forest-deep);
-    color:white;
+.footer {
+    padding: 55px 0 30px;
+
+    background: var(--forest-950);
+
+    color: white;
 }
 
-.footer-inner{
-    max-width:1280px;
-    margin:auto;
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 50px;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:25px;
+    padding-bottom: 45px;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
-.footer-brand{
-    font-family:Oswald,sans-serif;
-    font-size:21px;
-    text-transform:uppercase;
+.footer-brand-name {
+    font-family: var(--heading);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: .9;
+    text-transform: uppercase;
 }
 
-.footer-brand span{
-    color:#9bdd87;
+.footer-brand-name span {
+    color: var(--green-300);
 }
 
-.footer-copy{
-    color:#829083;
-    font-size:10px;
+.footer-description {
+    max-width: 340px;
+
+    margin-top: 17px;
+
+    color: #829083;
+
+    font-size: 11px;
+    line-height: 1.7;
 }
 
-.footer-phone{
-    color:#a8df96;
-    font-weight:700;
+.footer-heading {
+    margin-bottom: 15px;
+
+    color: var(--green-300);
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
+.footer-links {
+    display: grid;
+    gap: 9px;
+}
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.footer-links a {
+    color: #c4cec5;
 
-@media(max-width:900px){
+    font-size: 11px;
 
-    .header-inner{
-        padding:14px 20px;
-    }
+    transition: color .2s;
+}
 
-    .nav a:not(.nav-call){
-        display:none;
-    }
+.footer-links a:hover {
+    color: white;
+}
 
-    .hero-inner{
-        padding-left:20px;
-        padding-right:20px;
-    }
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
-    .trust-inner{
-        grid-template-columns:1fr 1fr;
-    }
+    padding-top: 25px;
 
-    .trust-item:nth-child(2){
-        border-right:0;
-    }
+    color: #657267;
 
-    .intro-inner,
-    .feature-inner,
-    .contact-inner{
-        grid-template-columns:1fr;
-    }
+    font-size: 9px;
+}
 
-    .services-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .feature-image{
-        min-height:430px;
-    }
-
-    .project-grid{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:260px 260px 260px;
-    }
-
-    .project:first-child{
-        grid-column:span 2;
-        grid-row:span 1;
-    }
+.footer-phone {
+    color: var(--green-300);
 }
 
 
-@media(max-width:600px){
+/* ---------------------------------------------------------
+   STICKY MOBILE CALL
+--------------------------------------------------------- */
 
-    .topbar{
-        height:34px;
+.mobile-call-bar {
+    display: none;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 150;
+
+    padding: 10px;
+
+    background: rgba(7,19,10,.96);
+
+    border-top: 1px solid rgba(154,222,140,.2);
+
+    backdrop-filter: blur(10px);
+}
+
+.mobile-call-bar a {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--green-400);
+
+    color: var(--forest-950);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   REVEAL ANIMATION
+--------------------------------------------------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 1050px) {
+
+    .desktop-nav {
+        gap: 17px;
     }
 
-    .header{
-        top:34px;
+    .hero h1 {
+        font-size: clamp(68px, 9vw, 105px);
     }
 
-    .header-inner{
-        min-height:72px;
+    .about-grid,
+    .feature-grid,
+    .contact-grid {
+        gap: 55px;
     }
 
-    .logo img{
-        width:45px;
-        height:45px;
+    .project-grid {
+        grid-template-columns: 1.3fr 1fr;
     }
 
-    .logo-copy b{
-        font-size:18px;
-    }
-
-    .logo-copy span{
-        font-size:7px;
-        letter-spacing:2px;
-    }
-
-    .nav-call{
-        padding:11px 13px;
-        font-size:9px!important;
-    }
-
-    .hero{
-        min-height:730px;
-    }
-
-    .hero-inner{
-        padding:155px 20px 100px;
-    }
-
-    .hero h1{
-        font-size:65px;
-    }
-
-    .hero-copy{
-        font-size:14px;
-    }
-
-    .intro,
-    .services,
-    .feature,
-    .projects,
-    .contact{
-        padding:80px 20px;
-    }
-
-    .services-heading,
-    .cta-inner{
-        display:block;
-    }
-
-    .services-heading p{
-        margin-top:20px;
-    }
-
-    .services-grid{
-        grid-template-columns:1fr;
-    }
-
-    .service{
-        min-height:250px;
-    }
-
-    .service h3{
-        margin-top:65px;
-    }
-
-    .feature-image{
-        min-height:340px;
-    }
-
-    .project-grid{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:210px 210px 210px;
-    }
-
-    .cta-phone{
-        display:block;
-        margin-top:30px;
-        white-space:normal;
-    }
-
-    .contact-inner{
-        gap:55px;
-    }
-
-    .quote-form{
-        padding:20px;
-    }
-
-    .form-row{
-        grid-template-columns:1fr;
-        gap:0;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
+    .project:nth-child(3),
+    .project:nth-child(4) {
+        grid-column: auto;
     }
 }
+
+
+@media (max-width: 850px) {
+
+    .container {
+        width: min(100% - 36px, 700px);
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-button {
+        display: flex;
+    }
+
+    .header-inner {
+        min-height: 78px;
+    }
+
+    .brand-logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .brand-name strong {
+        font-size: 21px;
+    }
+
+    .hero {
+        min-height: 760px;
+    }
+
+    .hero-content {
+        padding-top: 130px;
+    }
+
+    .service-bar-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-bar-item:nth-child(2) {
+        border-right: 0;
+    }
+
+    .about-grid,
+    .feature-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-copy {
+        max-width: none;
+    }
+
+    .feature-photo {
+        min-height: 500px;
+    }
+
+    .services-header,
+    .projects-heading {
+        display: block;
+    }
+
+    .services-header-copy,
+    .projects-intro {
+        margin-top: 20px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-step {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .process-step:last-child {
+        border-bottom: 0;
+    }
+
+    .callout-inner {
+        display: block;
+    }
+
+    .callout-phone {
+        display: inline-block;
+        margin-top: 30px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand-column {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        padding-bottom: 70px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .grass-ticker {
+        height: 36px;
+    }
+
+    .site-header {
+        top: 36px;
+    }
+
+    .header-inner {
+        min-height: 72px;
+    }
+
+    .brand-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-name strong {
+        font-size: 18px;
+    }
+
+    .brand-name small {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        min-height: 720px;
+    }
+
+    .hero-content {
+        padding-top: 145px;
+        padding-bottom: 90px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .service-bar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-bar-item {
+        min-height: 75px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .service-bar-item:last-child {
+        border-bottom: 0;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        min-height: 310px;
+    }
+
+    .service-card h3 {
+        margin-top: 70px;
+        font-size: 38px;
+    }
+
+    .feature-photo {
+        min-height: 360px;
+    }
+
+    .project-grid {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 230px 190px 190px;
+    }
+
+    .project:first-child {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .project-caption strong {
+        font-size: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field.full {
+        grid-column: auto;
+    }
+
+    .contact-form {
+        padding: 22px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand-column {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        display: block;
+        line-height: 1.8;
+    }
+
+    .footer-phone {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .mobile-call-bar {
+        display: block;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
 </style>
 </head>
 
 
 <body>
 
-<!-- =====================================================
-     TOP TICKER
-===================================================== -->
 
-<div class="topbar">
-    <div class="topbar-track">
+<!-- =======================================================
+     GRASS TICKER
+======================================================== -->
 
-        <span>
-            <strong>THE LAWN GUY & SERVICES LLC</strong>
-            &nbsp; • &nbsp; PROFESSIONAL LAWN CARE
-            &nbsp; • &nbsp; MULCHING
-            &nbsp; • &nbsp; ASPHALT PATCHING
-            &nbsp; • &nbsp; WEED TREATMENT
-        </span>
+<div class="grass-ticker">
 
-        <span>
-            <strong>THE LAWN GUY & SERVICES LLC</strong>
-            &nbsp; • &nbsp; PROFESSIONAL LAWN CARE
-            &nbsp; • &nbsp; MULCHING
-            &nbsp; • &nbsp; ASPHALT PATCHING
-            &nbsp; • &nbsp; WEED TREATMENT
-        </span>
+    <div class="ticker-window">
+
+        <div class="ticker-track">
+
+            <div class="ticker-item">
+                <strong>THE LAWN GUY & SERVICES LLC</strong>
+                &nbsp; • &nbsp;
+                PROFESSIONAL LAWN CARE
+                &nbsp; • &nbsp;
+                MULCHING
+                &nbsp; • &nbsp;
+                ASPHALT PATCHING
+                &nbsp; • &nbsp;
+                WEED TREATMENT
+            </div>
+
+            <div class="ticker-item">
+                <strong>THE LAWN GUY & SERVICES LLC</strong>
+                &nbsp; • &nbsp;
+                PROFESSIONAL LAWN CARE
+                &nbsp; • &nbsp;
+                MULCHING
+                &nbsp; • &nbsp;
+                ASPHALT PATCHING
+                &nbsp; • &nbsp;
+                WEED TREATMENT
+            </div>
+
+        </div>
 
     </div>
+
 </div>
 
 
-<!-- =====================================================
+<!-- =======================================================
      HEADER
-===================================================== -->
+======================================================== -->
 
-<header class="header">
+<header class="site-header">
 
-    <div class="header-inner">
+    <div class="container header-inner">
 
-        <a href="#" class="logo">
+        <a href="#" class="brand">
 
-            <img src="logo.PNG" alt="The Lawn Guy & Services LLC">
+            <img
+                src="logo.PNG"
+                alt="The Lawn Guy & Services LLC"
+                class="brand-logo"
+            >
 
-            <div class="logo-copy">
-                <b>The Lawn Guy</b>
-                <span>& Services LLC</span>
+            <div class="brand-name">
+
+                <strong>The Lawn Guy</strong>
+
+                <small>& Services LLC</small>
+
             </div>
 
         </a>
 
 
-        <nav class="nav">
+        <nav class="desktop-nav">
+
+            <a href="#about">About</a>
 
             <a href="#services">Services</a>
+
             <a href="#work">Our Work</a>
+
             <a href="#contact">Contact</a>
 
-            <a href="tel:7313363032" class="nav-call">
-                Call 731-336-3032
+            <a
+                href="tel:7313363032"
+                class="nav-call"
+            >
+                731-336-3032
             </a>
 
         </nav>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            <span></span>
+        </button>
 
     </div>
 
 </header>
 
 
-<!-- =====================================================
+<!-- =======================================================
+     MOBILE MENU
+======================================================== -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <div class="mobile-menu-links">
+
+        <a href="#about">About</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#work">Our Work</a>
+
+        <a href="#contact">Contact</a>
+
+        <a
+            href="tel:7313363032"
+            class="mobile-call"
+        >
+            Call 731-336-3032
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
      HERO
-===================================================== -->
+======================================================== -->
 
 <section class="hero">
 
-    <div class="hero-inner">
+    <div class="container hero-content">
 
         <div class="hero-kicker">
             Professional Property Services
         </div>
+
 
         <h1>
             Your Property.<br>
             <span>Our Standard.</span>
         </h1>
 
-        <p class="hero-copy">
+
+        <p class="hero-description">
             Lawn care, mulching, asphalt patching and weed treatment
-            done with attention to the details that make a property
-            stand out.
+            focused on clean work, dependable service and a property
+            you can be proud of.
         </p>
+
 
         <div class="hero-actions">
 
-            <a href="#contact" class="btn btn-primary">
+            <a
+                href="#contact"
+                class="btn btn-primary"
+            >
                 Request A Quote
             </a>
 
-            <a href="tel:7313363032" class="btn btn-outline">
-                731-336-3032
+            <a
+                href="tel:7313363032"
+                class="btn btn-outline"
+            >
+                Call 731-336-3032
             </a>
 
         </div>
 
     </div>
 
+
+    <div class="container hero-scroll">
+        Scroll to explore
+    </div>
+
 </section>
 
 
-<!-- =====================================================
-     TRUST
-===================================================== -->
+<!-- =======================================================
+     SERVICE BAR
+======================================================== -->
 
-<section class="trust">
+<section class="service-bar">
 
-    <div class="trust-inner">
+    <div class="container service-bar-grid">
 
-        <div class="trust-item">
-            <div class="trust-number">01</div>
-            <div class="trust-label">Lawn Care</div>
+        <div class="service-bar-item">
+
+            <div class="service-bar-number">01</div>
+
+            <div class="service-bar-text">
+                <strong>Lawn Care</strong>
+                <small>Keep it looking sharp</small>
+            </div>
+
         </div>
 
-        <div class="trust-item">
-            <div class="trust-number">02</div>
-            <div class="trust-label">Mulching</div>
+
+        <div class="service-bar-item">
+
+            <div class="service-bar-number">02</div>
+
+            <div class="service-bar-text">
+                <strong>Mulching</strong>
+                <small>Clean landscape finish</small>
+            </div>
+
         </div>
 
-        <div class="trust-item">
-            <div class="trust-number">03</div>
-            <div class="trust-label">Asphalt Patching</div>
+
+        <div class="service-bar-item">
+
+            <div class="service-bar-number">03</div>
+
+            <div class="service-bar-text">
+                <strong>Asphalt Patching</strong>
+                <small>Repair worn areas</small>
+            </div>
+
         </div>
 
-        <div class="trust-item">
-            <div class="trust-number">04</div>
-            <div class="trust-label">Weed Treatment</div>
+
+        <div class="service-bar-item">
+
+            <div class="service-bar-number">04</div>
+
+            <div class="service-bar-text">
+                <strong>Weed Treatment</strong>
+                <small>Control unwanted growth</small>
+            </div>
+
         </div>
 
     </div>
@@ -1186,21 +2131,24 @@ select{
 </section>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+<!-- =======================================================
+     ABOUT
+======================================================== -->
 
-<section class="intro">
+<section
+    class="section about"
+    id="about"
+>
 
-    <div class="intro-inner">
+    <div class="container about-grid">
 
-        <div>
+        <div class="about-heading reveal">
 
-            <div class="section-tag">
+            <div class="eyebrow">
                 The Lawn Guy & Services LLC
             </div>
 
-            <h2>
+            <h2 class="section-title">
                 More Than<br>
                 A Mowed Lawn.<br>
                 <span>A Better Property.</span>
@@ -1209,20 +2157,67 @@ select{
         </div>
 
 
-        <div class="intro-copy">
+        <div class="about-copy reveal">
 
-            <p>
-                Your property's appearance matters. The Lawn Guy &
-                Services LLC provides dependable property services
-                designed to keep residential and commercial spaces
-                looking clean, maintained and cared for.
+            <p class="section-copy">
+                Your property is the first thing people see. The Lawn
+                Guy & Services LLC provides practical property services
+                designed to keep that first impression looking its best.
             </p>
 
-            <p>
-                From routine lawn care to larger property projects,
-                we're focused on doing the job right and leaving
-                behind results you can see.
+            <p class="section-copy">
+                From lawn care and mulching to asphalt patching and weed
+                treatment, every service is focused on creating a cleaner,
+                better-maintained property.
             </p>
+
+
+            <div class="about-points">
+
+                <div class="about-point">
+
+                    <strong>Quality</strong>
+
+                    <span>
+                        Attention to the finished result.
+                    </span>
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <strong>Dependable</strong>
+
+                    <span>
+                        Straightforward service and communication.
+                    </span>
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <strong>Professional</strong>
+
+                    <span>
+                        A property service you can feel good about hiring.
+                    </span>
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <strong>Local</strong>
+
+                    <span>
+                        Focused on serving the communities around us.
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1231,86 +2226,167 @@ select{
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      SERVICES
-===================================================== -->
+======================================================== -->
 
-<section id="services" class="services">
+<section
+    class="section services-section"
+    id="services"
+>
 
-    <div class="services-inner">
+    <div class="container">
 
-        <div class="services-heading">
+        <div class="services-header reveal">
 
             <div>
-                <div class="section-tag">Our Services</div>
 
-                <h2>
-                    What We<br>
-                    <span>Do.</span>
+                <div class="eyebrow">
+                    What We Do
+                </div>
+
+                <h2 class="section-title">
+                    Services That<br>
+                    <span>Get It Done.</span>
                 </h2>
+
             </div>
 
-            <p>
-                Straightforward property services. Professional
-                presentation. Quality results.
-            </p>
+
+            <div class="services-header-copy">
+
+                <p class="section-copy">
+                    Whether your property needs routine maintenance
+                    or a specific repair, we've got the services to
+                    help get it looking right.
+                </p>
+
+            </div>
 
         </div>
 
 
         <div class="services-grid">
 
-            <article class="service">
 
-                <div class="service-number">01</div>
+            <!-- SERVICE 01 -->
 
-                <h3>Lawn Care</h3>
+            <article class="service-card reveal">
+
+                <div class="service-card-top">
+
+                    <span class="service-index">
+                        01
+                    </span>
+
+                    <span class="service-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Lawn Care
+                </h3>
+
 
                 <p>
-                    Professional lawn maintenance to keep your
-                    property looking clean and well cared for.
+                    Keep your lawn maintained, clean and looking sharp
+                    with dependable lawn care services.
                 </p>
 
             </article>
 
 
-            <article class="service">
+            <!-- SERVICE 02 -->
 
-                <div class="service-number">02</div>
+            <article class="service-card reveal">
 
-                <h3>Mulching</h3>
+                <div class="service-card-top">
+
+                    <span class="service-index">
+                        02
+                    </span>
+
+                    <span class="service-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Mulching
+                </h3>
+
 
                 <p>
-                    Fresh mulch installation that gives beds and
-                    landscaped areas a finished appearance.
+                    Fresh mulch can completely change the appearance
+                    of landscape beds and give your property a
+                    finished look.
                 </p>
 
             </article>
 
 
-            <article class="service">
+            <!-- SERVICE 03 -->
 
-                <div class="service-number">03</div>
+            <article class="service-card reveal">
 
-                <h3>Asphalt Patching</h3>
+                <div class="service-card-top">
+
+                    <span class="service-index">
+                        03
+                    </span>
+
+                    <span class="service-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Asphalt<br>
+                    Patching
+                </h3>
+
 
                 <p>
-                    Targeted asphalt repairs for damaged areas,
-                    potholes and worn sections.
+                    Address potholes, damaged sections and worn asphalt
+                    before small problems become bigger ones.
                 </p>
 
             </article>
 
 
-            <article class="service">
+            <!-- SERVICE 04 -->
 
-                <div class="service-number">04</div>
+            <article class="service-card reveal">
 
-                <h3>Weed Treatment</h3>
+                <div class="service-card-top">
+
+                    <span class="service-index">
+                        04
+                    </span>
+
+                    <span class="service-arrow">
+                        ↗
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    Weed<br>
+                    Treatment
+                </h3>
+
 
                 <p>
-                    Treatment designed to help control unwanted weeds
-                    and improve the appearance of your property.
+                    Help keep unwanted weeds under control and improve
+                    the overall appearance of your property.
                 </p>
 
             </article>
@@ -1322,40 +2398,60 @@ select{
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      FEATURE
-===================================================== -->
+======================================================== -->
 
-<section class="feature">
+<section class="section feature">
 
-    <div class="feature-inner">
+    <div class="container feature-grid">
 
-        <div class="feature-image"></div>
+        <div class="feature-photo reveal">
+
+            <div class="feature-photo-label">
+                The Lawn Guy & Services LLC
+            </div>
+
+        </div>
 
 
-        <div class="feature-content">
+        <div class="feature-copy reveal">
 
-            <div class="section-tag">
+            <div class="eyebrow">
                 The Difference
             </div>
 
-            <h2>
+
+            <h2 class="section-title">
                 Clean Work.<br>
                 <span>Clear Results.</span>
             </h2>
 
+
             <p>
-                A good property service isn't just about getting the
-                work finished. It's about how the property looks when
-                the work is complete.
+                Getting the job done is only part of the equation.
+                The finished property should look noticeably better
+                than it did before the work started.
             </p>
+
 
             <ul class="feature-list">
 
-                <li>Professional presentation</li>
-                <li>Attention to detail</li>
-                <li>Dependable communication</li>
-                <li>Quality-focused service</li>
+                <li>
+                    Professional presentation
+                </li>
+
+                <li>
+                    Attention to detail
+                </li>
+
+                <li>
+                    Dependable communication
+                </li>
+
+                <li>
+                    Quality-focused service
+                </li>
 
             </ul>
 
@@ -1366,87 +2462,131 @@ select{
 </section>
 
 
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
+<!-- =======================================================
+     OUR WORK
+======================================================== -->
 
-<section id="work" class="projects">
+<section
+    class="section projects"
+    id="work"
+>
 
-    <div class="projects-inner">
+    <div class="container">
 
-        <div class="projects-heading">
+        <div class="projects-heading reveal">
 
-            <div class="section-tag">
-                Our Work
+            <div>
+
+                <div class="eyebrow">
+                    Our Work
+                </div>
+
+                <h2 class="section-title">
+                    Results You<br>
+                    <span>Can See.</span>
+                </h2>
+
             </div>
 
-            <h2>
-                Results You<br>
-                <span>Can See.</span>
-            </h2>
+
+            <div class="projects-intro">
+
+                <p class="section-copy">
+                    Replace these images with your actual completed
+                    projects. The gallery is designed around large,
+                    high-quality photographs so the work speaks for
+                    itself.
+                </p>
+
+            </div>
 
         </div>
 
 
         <div class="project-grid">
 
-            <div class="project">
+
+            <div class="project reveal">
 
                 <img
                     src="project-1.jpg"
-                    alt="The Lawn Guy project"
+                    alt="The Lawn Guy completed lawn project"
                 >
 
                 <div class="project-caption">
-                    <strong>Lawn Care</strong>
+
+                    <small>01 / Lawn Care</small>
+
+                    <strong>
+                        Lawn Care
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <div class="project">
+            <div class="project reveal">
 
                 <img
                     src="project-2.jpg"
-                    alt="The Lawn Guy project"
+                    alt="The Lawn Guy mulching project"
                 >
 
                 <div class="project-caption">
-                    <strong>Mulching</strong>
+
+                    <small>02 / Landscaping</small>
+
+                    <strong>
+                        Mulching
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <div class="project">
+            <div class="project reveal">
 
                 <img
                     src="project-3.jpg"
-                    alt="The Lawn Guy project"
+                    alt="The Lawn Guy property service"
                 >
 
                 <div class="project-caption">
-                    <strong>Property Care</strong>
+
+                    <small>03 / Property</small>
+
+                    <strong>
+                        Property Care
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <div class="project">
+            <div class="project reveal">
 
                 <img
                     src="project-4.jpg"
-                    alt="The Lawn Guy project"
+                    alt="The Lawn Guy completed work"
                 >
 
                 <div class="project-caption">
-                    <strong>Completed Work</strong>
+
+                    <small>04 / Completed</small>
+
+                    <strong>
+                        Finished Right
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <div class="project">
+            <div class="project reveal">
 
                 <img
                     src="hero.jpg"
@@ -1454,7 +2594,13 @@ select{
                 >
 
                 <div class="project-caption">
-                    <strong>The Lawn Guy</strong>
+
+                    <small>05 / The Lawn Guy</small>
+
+                    <strong>
+                        Your Property
+                    </strong>
+
                 </div>
 
             </div>
@@ -1466,29 +2612,122 @@ select{
 </section>
 
 
-<!-- =====================================================
-     CTA
-===================================================== -->
+<!-- =======================================================
+     PROCESS
+======================================================== -->
 
-<section class="cta">
+<section class="section process">
 
-    <div class="cta-inner">
+    <div class="container">
+
+        <div class="process-heading reveal">
+
+            <div class="eyebrow">
+                Simple Process
+            </div>
+
+            <h2 class="section-title">
+                From First Call<br>
+                To <span>Finished Job.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-step reveal">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Tell Us What You Need
+                </h3>
+
+                <p>
+                    Give us a call or send a quote request with some
+                    information about your property and project.
+                </p>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Get Your Quote
+                </h3>
+
+                <p>
+                    We'll discuss what needs to be done and provide
+                    the information you need to move forward.
+                </p>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Get It Done
+                </h3>
+
+                <p>
+                    Once the project is scheduled, it's time to get
+                    to work and leave your property looking better.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CALL TO ACTION
+======================================================== -->
+
+<section class="section callout">
+
+    <div class="container callout-inner">
 
         <div>
 
-            <h2>
-                Ready To<br>
-                Get Started?
+            <div class="eyebrow" style="color:#9ade8c;">
+                Ready To Get Started?
+            </div>
+
+            <h2 class="section-title">
+                Let's Get<br>
+                <span>To Work.</span>
             </h2>
 
-            <p>
-                Tell us what you need done and let's talk about your
-                project.
+            <p class="callout-copy">
+                Tell us about your property and let's talk about
+                what you need done.
             </p>
 
         </div>
 
-        <a href="tel:7313363032" class="cta-phone">
+
+        <a
+            href="tel:7313363032"
+            class="callout-phone"
+        >
             731-336-3032
         </a>
 
@@ -1497,26 +2736,32 @@ select{
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      CONTACT
-===================================================== -->
+======================================================== -->
 
-<section id="contact" class="contact">
+<section
+    class="section contact"
+    id="contact"
+>
 
-    <div class="contact-inner">
+    <div class="container contact-grid">
 
-        <div>
 
-            <div class="section-tag">
+        <div class="contact-info reveal">
+
+            <div class="eyebrow">
                 Get In Touch
             </div>
 
-            <h2>
+
+            <h2 class="section-title">
                 Request A<br>
-                <span>Free Quote.</span>
+                <span>Quote.</span>
             </h2>
 
-            <p class="contact-description">
+
+            <p class="section-copy contact-description">
                 Have a lawn, landscaping or property project in mind?
                 Send us the details and we'll get in touch.
             </p>
@@ -1524,9 +2769,11 @@ select{
 
             <div class="contact-details">
 
-                <div class="contact-detail">
+                <div>
 
-                    <small>Phone</small>
+                    <span class="contact-detail-label">
+                        Phone
+                    </span>
 
                     <a href="tel:7313363032">
                         731-336-3032
@@ -1535,9 +2782,11 @@ select{
                 </div>
 
 
-                <div class="contact-detail">
+                <div>
 
-                    <small>Email</small>
+                    <span class="contact-detail-label">
+                        Email
+                    </span>
 
                     <a href="mailto:tlg100486@gmail.com">
                         tlg100486@gmail.com
@@ -1550,90 +2799,154 @@ select{
         </div>
 
 
+        <!-- FORM -->
+
         <form
-            class="quote-form"
-            action="https://formsubmit.co/tlg100486@gmail.com"
-            method="POST"
+            class="contact-form reveal"
+            id="quoteForm"
         >
 
-            <input
-                type="hidden"
-                name="_subject"
-                value="New Quote Request - The Lawn Guy & Services LLC"
-            >
+            <div class="form-heading">
+                Tell Us About Your Project
+            </div>
 
-            <input
-                type="hidden"
-                name="_captcha"
-                value="false"
-            >
 
-            <div class="form-row">
+            <div class="form-grid">
 
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    required
-                >
 
-                <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    required
-                >
+                <div class="form-field">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="phone">
+                        Phone
+                    </label>
+
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email address"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label for="service">
+                        Service Needed
+                    </label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option value="">
+                            Select a service
+                        </option>
+
+                        <option value="Lawn Care">
+                            Lawn Care
+                        </option>
+
+                        <option value="Mulching">
+                            Mulching
+                        </option>
+
+                        <option value="Asphalt Patching">
+                            Asphalt Patching
+                        </option>
+
+                        <option value="Weed Treatment">
+                            Weed Treatment
+                        </option>
+
+                        <option value="Multiple Services">
+                            Multiple Services
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label for="address">
+                        Property Address
+                    </label>
+
+                    <input
+                        id="address"
+                        name="address"
+                        type="text"
+                        placeholder="Property address"
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label for="message">
+                        Project Details
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us what you need done..."
+                        required
+                    ></textarea>
+
+                </div>
 
             </div>
 
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-            >
-
-
-            <select name="service" required>
-
-                <option value="">
-                    What service do you need?
-                </option>
-
-                <option value="Lawn Care">
-                    Lawn Care
-                </option>
-
-                <option value="Mulching">
-                    Mulching
-                </option>
-
-                <option value="Asphalt Patching">
-                    Asphalt Patching
-                </option>
-
-                <option value="Weed Treatment">
-                    Weed Treatment
-                </option>
-
-                <option value="Other">
-                    Other
-                </option>
-
-            </select>
-
-
-            <textarea
-                name="message"
-                placeholder="Tell us about your project..."
-                required
-            ></textarea>
-
-
             <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-dark form-submit"
             >
                 Send Quote Request
             </button>
@@ -1645,32 +2958,324 @@ select{
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================== -->
 
 <footer class="footer">
 
-    <div class="footer-inner">
+    <div class="container">
 
-        <div class="footer-brand">
-            THE <span>LAWN GUY</span> & SERVICES LLC
+
+        <div class="footer-main">
+
+
+            <div class="footer-brand-column">
+
+                <div class="footer-brand-name">
+                    The <span>Lawn Guy</span><br>
+                    & Services LLC
+                </div>
+
+
+                <p class="footer-description">
+                    Lawn care, mulching, asphalt patching and weed
+                    treatment for properties that deserve to look
+                    their best.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-heading">
+                    Navigation
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#about">
+                        About
+                    </a>
+
+                    <a href="#services">
+                        Services
+                    </a>
+
+                    <a href="#work">
+                        Our Work
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-heading">
+                    Contact
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="tel:7313363032">
+                        731-336-3032
+                    </a>
+
+                    <a href="mailto:tlg100486@gmail.com">
+                        tlg100486@gmail.com
+                    </a>
+
+                    <a href="#contact">
+                        Request A Quote
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="footer-copy">
-            © 2026 The Lawn Guy & Services LLC. All rights reserved.
-        </div>
 
-        <a
-            href="tel:7313363032"
-            class="footer-phone"
-        >
-            731-336-3032
-        </a>
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 The Lawn Guy & Services LLC. All rights reserved.
+            </span>
+
+            <a
+                href="tel:7313363032"
+                class="footer-phone"
+            >
+                731-336-3032
+            </a>
+
+        </div>
 
     </div>
 
 </footer>
+
+
+<!-- =======================================================
+     MOBILE CALL BAR
+======================================================== -->
+
+<div class="mobile-call-bar">
+
+    <a href="tel:7313363032">
+        Call The Lawn Guy — 731-336-3032
+    </a>
+
+</div>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================== -->
+
+<script>
+
+/* ---------------------------------------------------------
+   MOBILE MENU
+--------------------------------------------------------- */
+
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuButton.addEventListener("click", () => {
+
+    const isOpen = mobileMenu.classList.toggle("open");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+    );
+
+    document.body.classList.toggle(
+        "menu-open",
+        isOpen
+    );
+
+});
+
+
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        });
+
+    });
+
+
+/* ---------------------------------------------------------
+   SCROLL REVEAL
+--------------------------------------------------------- */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* ---------------------------------------------------------
+   QUOTE FORM
+   GitHub Pages is static, so this creates a mailto
+   request rather than pretending there is a backend.
+--------------------------------------------------------- */
+
+const quoteForm =
+    document.getElementById("quoteForm");
+
+
+quoteForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const formData =
+        new FormData(quoteForm);
+
+
+    const name =
+        formData.get("name") || "";
+
+    const phone =
+        formData.get("phone") || "";
+
+    const email =
+        formData.get("email") || "";
+
+    const service =
+        formData.get("service") || "";
+
+    const address =
+        formData.get("address") || "";
+
+    const message =
+        formData.get("message") || "";
+
+
+    const subject =
+        encodeURIComponent(
+            "New Quote Request - " + service
+        );
+
+
+    const body =
+        encodeURIComponent(
+`THE LAWN GUY & SERVICES LLC
+NEW QUOTE REQUEST
+
+Name:
+${name}
+
+Phone:
+${phone}
+
+Email:
+${email}
+
+Service:
+${service}
+
+Property Address:
+${address}
+
+Project Details:
+${message}
+`
+        );
+
+
+    window.location.href =
+        `mailto:tlg100486@gmail.com?subject=${subject}&body=${body}`;
+
+});
+
+
+/* ---------------------------------------------------------
+   CLOSE MENU WITH ESCAPE
+--------------------------------------------------------- */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            mobileMenu.classList.contains("open")
+        ) {
+
+            mobileMenu.classList.remove("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
